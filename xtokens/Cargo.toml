@@ -18,7 +18,7 @@ sp-std = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v
 frame-support = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.14", default-features = false }
 frame-system = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.14", default-features = false }
 
-cumulus-primitives-core = { git = "https://github.com/paritytech/cumulus", branch = "polkadot-v0.9.14", default-features = false }
+cumulus-primitives-core = { git = "https://github.com/UniqueNetwork/cumulus.git", branch = "polkadot-v0.9.14", default-features = false }
 
 xcm = { git = "https://github.com/paritytech/polkadot", branch = "release-v0.9.14", default-features = false }
 xcm-executor = { git = "https://github.com/paritytech/polkadot", branch = "release-v0.9.14", default-features = false }
@@ -31,11 +31,11 @@ sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-
 pallet-balances = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.14" }
 
 # cumulus
-cumulus-primitives-core = { git = "https://github.com/paritytech/cumulus", branch = "polkadot-v0.9.14" }
-cumulus-pallet-dmp-queue = { git = "https://github.com/paritytech/cumulus", branch = "polkadot-v0.9.14" }
-cumulus-pallet-xcmp-queue = { git = "https://github.com/paritytech/cumulus", branch = "polkadot-v0.9.14" }
-cumulus-pallet-xcm = { git = "https://github.com/paritytech/cumulus", branch = "polkadot-v0.9.14" }
-parachain-info = { git = "https://github.com/paritytech/cumulus", branch = "polkadot-v0.9.14" }
+cumulus-primitives-core = { git = "https://github.com/UniqueNetwork/cumulus.git", branch = "polkadot-v0.9.14" }
+cumulus-pallet-dmp-queue = { git = "https://github.com/UniqueNetwork/cumulus.git", branch = "polkadot-v0.9.14" }
+cumulus-pallet-xcmp-queue = { git = "https://github.com/UniqueNetwork/cumulus.git", branch = "polkadot-v0.9.14" }
+cumulus-pallet-xcm = { git = "https://github.com/UniqueNetwork/cumulus.git", branch = "polkadot-v0.9.14" }
+parachain-info = { git = "https://github.com/UniqueNetwork/cumulus.git", branch = "polkadot-v0.9.14" }
 
 # polkadot
 polkadot-parachain = { git = "https://github.com/paritytech/polkadot", branch = "release-v0.9.14" }
