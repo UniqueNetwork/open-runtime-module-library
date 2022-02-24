@@ -35,5 +35,5 @@ pub fn run<B: Block>(wasm_code: Vec<u8>) -> std::result::Result<Vec<u8>, String>
 
 	let blob = RuntimeBlob::uncompress_if_needed(&wasm_code[..]).unwrap();
 
-	executor.uncached_call(blob, &mut bench_ext, false, "run_benches", &[])
+	executor.uncached_call(blob, &mut bench_ext, false, "run_benches", &[]).map_err(|e| e.to_string())
 }
