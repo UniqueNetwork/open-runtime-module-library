@@ -5,7 +5,7 @@ use crate as orml_asset_registry;
 use codec::{Decode, Encode};
 use cumulus_primitives_core::{ChannelStatus, GetChannelInfo, ParaId};
 use frame_support::{
-	construct_runtime, match_type, parameter_types,
+	construct_runtime, match_types, parameter_types,
 	traits::{ConstU128, ConstU32, ConstU64, Everything, Nothing},
 	weights::{constants::WEIGHT_PER_SECOND, Weight},
 	PalletId,
@@ -156,7 +156,7 @@ pub type XcmRouter = ParachainXcmRouter<ParachainInfo>;
 pub type Barrier = (TakeWeightCredit, AllowTopLevelPaidExecutionFrom<Everything>);
 
 parameter_types! {
-	pub TreasuryAccount: AccountId = PalletId(*b"Treasury").into_account();
+	pub TreasuryAccount: AccountId = PalletId(*b"Treasury").into_account_truncating();
 }
 
 pub struct ToTreasury;
@@ -270,7 +270,7 @@ parameter_types! {
 	pub const MaxAssetsForTransfer: usize = 3;
 }
 
-match_type! {
+match_types! {
 	pub type ParentOrParachains: impl Contains<MultiLocation> = {
 		MultiLocation { parents: 0, interior: X1(Junction::AccountId32 { .. }) } |
 		MultiLocation { parents: 1, interior: X1(Junction::AccountId32 { .. }) } |
@@ -283,11 +283,11 @@ match_type! {
 }
 
 parameter_type_with_key! {
-	pub ParachainMinFee: |location: MultiLocation| -> u128 {
+	pub ParachainMinFee: |location: MultiLocation| -> Option<u128> {
 		#[allow(clippy::match_ref_pats)] // false positive
 		match (location.parents, location.first_interior()) {
-			(1, Some(Parachain(2))) => 40,
-			_ => u128::MAX,
+			(1, Some(Parachain(2))) => Some(40),
+			_ => None,
 		}
 	};
 }
