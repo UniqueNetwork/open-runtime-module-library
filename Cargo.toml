@@ -4,7 +4,7 @@ cargo-features = ["resolver"]
 members = [
 	"auction",
 	"authority",
-	"bencher",
+	# "bencher",
 	"benchmarking",
 	"currencies",
 	"gradually-update",
