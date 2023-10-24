@@ -203,4 +203,13 @@ where
 	) -> Result<Self::CollectionId, DispatchError> {
 		<ExecutorOf<T>>::create_collection(who, admin, config)
 	}
+
+	fn create_collection_with_id(
+		collection: Self::CollectionId,
+		who: &T::AccountId,
+		admin: &T::AccountId,
+		config: &T::CollectionConfig,
+	) -> Result<(), DispatchError> {
+		<ExecutorOf<T>>::create_collection_with_id(collection, who, admin, config)
+	}
 }

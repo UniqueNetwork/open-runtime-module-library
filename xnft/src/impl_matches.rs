@@ -22,8 +22,12 @@ where
 	CollectionIdOf<T>: MaxEncodedLen,
 {
 	pub fn get_next_item_of(collection_id: &CollectionIdOf<T>) -> Result<ItemIdOf<T>, MatchError> {
-		let item = <NextItemId<T>>::get(collection_id).unwrap_or(<ItemIdOf<T>>::initial_value());
-		<NextItemId<T>>::set(collection_id, Some(item.increment()));
+		let item = <NextItemId<T>>::get(collection_id)
+			.unwrap_or(<ItemIdOf<T>>::initial_value().ok_or(MatchError::InstanceConversionFailed)?);
+		<NextItemId<T>>::set(
+			collection_id,
+			Some(item.increment().ok_or(MatchError::InstanceConversionFailed)?),
+		);
 		Ok(item)
 	}
 }
