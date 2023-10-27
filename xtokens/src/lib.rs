@@ -526,20 +526,34 @@ pub mod module {
 			let asset_len = assets.len();
 			for i in 0..asset_len {
 				let asset = assets.get(i).ok_or(Error::<T>::AssetIndexNonExistent)?;
-				ensure!(
-					matches!(asset.fun, Fungibility::Fungible(x) if !x.is_zero()),
-					Error::<T>::InvalidAsset
-				);
-				// `assets` includes fee, the reserve location is decided by non fee asset
-				if (fee != *asset && non_fee_reserve.is_none()) || asset_len == 1 {
-					non_fee_reserve = T::ReserveProvider::reserve(asset);
-				}
-				// make sure all non fee assets share the same reserve
-				if non_fee_reserve.is_some() {
+
+				if fee == *asset {
+					// Fee payment can only be made by using fungibles
 					ensure!(
-						non_fee_reserve == T::ReserveProvider::reserve(asset),
-						Error::<T>::DistinctReserveForAssetAndFee
+						matches!(asset.fun, Fungibility::Fungible(x) if !x.is_zero()),
+						Error::<T>::InvalidAsset
 					);
+				} else {
+					match asset.fun {
+						Fungibility::Fungible(x) => ensure!(!x.is_zero(), Error::<T>::InvalidAsset),
+						Fungibility::NonFungible(AssetInstance::Undefined) => {
+							return Err(Error::<T>::InvalidAsset.into())
+						}
+						_ => {}
+					}
+
+					// `assets` includes fee, the reserve location is decided by non fee asset
+					if non_fee_reserve.is_none() || asset_len == 1 {
+						non_fee_reserve = T::ReserveProvider::reserve(asset);
+					}
+
+					// make sure all non fee assets share the same reserve
+					if non_fee_reserve.is_some() {
+						ensure!(
+							non_fee_reserve == T::ReserveProvider::reserve(asset),
+							Error::<T>::DistinctReserveForAssetAndFee
+						);
+					}
 				}
 			}
 
