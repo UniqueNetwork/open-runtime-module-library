@@ -1,5 +1,4 @@
 use crate::*;
-pub(crate) type ExecutorOf<T> = <T as Config>::NftExecutor;
 
 impl<T: Config> Inspect<T::AccountId> for Pallet<T>
 where

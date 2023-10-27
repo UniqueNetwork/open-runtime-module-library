@@ -63,11 +63,6 @@ pub mod pallet {
 	}
 
 	#[pallet::storage]
-	#[pallet::getter(fn local_assets)]
-	pub type LocalAssets<T: Config> =
-		StorageMap<_, Twox64Concat, MultiAsset, LocalAsset<CollectionIdOf<T>, ItemIdOf<T>>, OptionQuery>;
-
-	#[pallet::storage]
 	#[pallet::getter(fn assets)]
 	pub type AssetsMapping<T: Config> = StorageMap<_, Twox64Concat, AssetId, CollectionIdOf<T>, OptionQuery>;
 
