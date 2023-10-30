@@ -12,7 +12,7 @@ use frame_system::Config as SystemConfig;
 use scale_info::TypeInfo;
 use sp_runtime::{traits::AccountIdConversion, DispatchError, DispatchResult, RuntimeDebug};
 use sp_std::{boxed::Box, vec::Vec};
-use xcm::v3::{AssetId, MultiAsset};
+use xcm::v3::{AssetId, AssetInstance, MultiAsset};
 
 pub mod impl_matches;
 pub mod impl_nonfungibles;
@@ -69,7 +69,7 @@ pub mod pallet {
 	#[pallet::storage]
 	#[pallet::getter(fn items)]
 	pub type ItemsMapping<T: Config> =
-		StorageDoubleMap<_, Twox64Concat, CollectionIdOf<T>, Twox64Concat, Fungibility, ItemIdOf<T>, OptionQuery>;
+		StorageDoubleMap<_, Twox64Concat, CollectionIdOf<T>, Twox64Concat, AssetInstance, ItemIdOf<T>, OptionQuery>;
 
 	#[pallet::storage]
 	pub type NextItemId<T: Config> = StorageMap<_, Twox64Concat, CollectionIdOf<T>, ItemIdOf<T>, OptionQuery>;
