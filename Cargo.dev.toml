@@ -16,7 +16,6 @@ members = [
 	"rewards",
 	"nft",
 	"xcm",
-	"xnft",
 	"xtokens",
 	"xcm-support",
 	"unknown-tokens",
