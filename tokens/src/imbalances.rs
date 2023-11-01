@@ -58,6 +58,11 @@ impl<T: Config, GetCurrencyId: Get<T::CurrencyId>> TryDrop for PositiveImbalance
 impl<T: Config, GetCurrencyId: Get<T::CurrencyId>> Imbalance<T::Balance> for PositiveImbalance<T, GetCurrencyId> {
 	type Opposite = NegativeImbalance<T, GetCurrencyId>;
 
+	fn extract(&mut self, v: T::Balance) -> Self {
+		let (r, v) = core::mem::take(self).split(v);
+		*self = v;
+		r
+	}
 	fn zero() -> Self {
 		Self::new(Zero::zero())
 	}
@@ -113,6 +118,11 @@ impl<T: Config, GetCurrencyId: Get<T::CurrencyId>> TryDrop for NegativeImbalance
 impl<T: Config, GetCurrencyId: Get<T::CurrencyId>> Imbalance<T::Balance> for NegativeImbalance<T, GetCurrencyId> {
 	type Opposite = PositiveImbalance<T, GetCurrencyId>;
 
+	fn extract(&mut self, v: T::Balance) -> Self {
+		let (r, v) = core::mem::take(self).split(v);
+		*self = v;
+		r
+	}
 	fn zero() -> Self {
 		Self::new(Zero::zero())
 	}
