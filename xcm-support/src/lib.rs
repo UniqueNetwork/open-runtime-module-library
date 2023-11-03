@@ -22,8 +22,9 @@ use xcm_executor::traits::MatchesFungible;
 use orml_traits::{location::Reserve, GetByKey};
 
 pub use currency_adapter::{DepositToAlternative, MultiCurrencyAdapter, OnDepositFail};
+
 mod currency_adapter;
-pub mod parity_adapters;
+
 mod tests;
 
 /// A `MatchesFungible` implementation. It matches concrete fungible assets
