@@ -543,7 +543,7 @@ pub mod module {
 					}
 
 					// `assets` includes fee, the reserve location is decided by non fee asset
-					if non_fee_reserve.is_none() || asset_len == 1 {
+					if non_fee_reserve.is_none() {
 						non_fee_reserve = T::ReserveProvider::reserve(asset);
 					}
 
@@ -558,7 +558,7 @@ pub mod module {
 			}
 
 			let fee_reserve = T::ReserveProvider::reserve(&fee);
-			if fee_reserve != non_fee_reserve {
+			if asset_len > 1 && fee_reserve != non_fee_reserve {
 				// Current only support `ToReserve` with relay-chain asset as fee. other case
 				// like `NonReserve` or `SelfReserve` with relay-chain fee is not support.
 				ensure!(non_fee_reserve == dest.chain_part(), Error::<T>::InvalidAsset);
@@ -624,7 +624,7 @@ pub mod module {
 					origin_location,
 					assets.clone(),
 					fee.clone(),
-					non_fee_reserve,
+					fee_reserve,
 					&dest,
 					None,
 					dest_weight_limit,
