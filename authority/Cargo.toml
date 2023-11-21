@@ -3,13 +3,13 @@ name = "orml-authority"
 description = "Utility pallet to perform ROOT calls in a PoA network"
 repository = "https://github.com/open-web3-stack/open-runtime-module-library/tree/master/auction"
 license = "Apache-2.0"
-version = "0.5.0-dev"
+version = "0.6.1"
 authors = ["Acala Developers"]
 edition = "2021"
 
 [dependencies]
 parity-scale-codec = { workspace = true }
-scale-info = { version = "2.9.0", default-features = false, features = ["derive"] }
+scale-info = { workspace = true }
 serde = { version = "1.0.145", optional = true }
 
 frame-support = { workspace = true }
@@ -30,9 +30,6 @@ default = [ "std" ]
 std = [
 	"frame-support/std",
 	"frame-system/std",
-	"pallet-preimage/std",
-	"pallet-root-testing/std",
-	"pallet-scheduler/std",
 	"parity-scale-codec/std",
 	"scale-info/std",
 	"serde",
@@ -44,15 +41,10 @@ std = [
 runtime-benchmarks = [
 	"frame-support/runtime-benchmarks",
 	"frame-system/runtime-benchmarks",
-	"pallet-preimage/runtime-benchmarks",
-	"pallet-scheduler/runtime-benchmarks",
 	"sp-runtime/runtime-benchmarks",
 ]
 try-runtime = [
 	"frame-support/try-runtime",
 	"frame-system/try-runtime",
-	"pallet-preimage/try-runtime",
-	"pallet-root-testing/try-runtime",
-	"pallet-scheduler/try-runtime",
 	"sp-runtime/try-runtime",
 ]
