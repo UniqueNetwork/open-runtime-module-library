@@ -34,6 +34,9 @@ use sp_std::vec::Vec;
 mod mock;
 mod tests;
 
+#[cfg(feature = "xnft")]
+pub mod xnft;
+
 /// Class info
 #[derive(Encode, Decode, Clone, Eq, PartialEq, MaxEncodedLen, RuntimeDebug, TypeInfo)]
 pub struct ClassInfo<TokenId, AccountId, Data, ClassMetadataOf> {

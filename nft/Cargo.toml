@@ -17,12 +17,19 @@ frame-system = { workspace = true }
 sp-runtime = { workspace = true }
 sp-std = { workspace = true }
 
+pallet-xnft = { workspace = true, optional = true }
+xcm = { workspace = true, optional = true }
+
 [dev-dependencies]
 sp-core = { workspace = true, features = ["std"] }
 sp-io = { workspace = true, features = ["std"] }
 
 [features]
 default = [ "std" ]
+xnft = [
+	"xcm",
+	"pallet-xnft",
+]
 std = [
 	"frame-support/std",
 	"frame-system/std",
@@ -31,9 +38,12 @@ std = [
 	"serde",
 	"sp-runtime/std",
 	"sp-std/std",
+	"xcm?/std",
+	"pallet-xnft?/std",
 ]
 try-runtime = [
 	"frame-support/try-runtime",
 	"frame-system/try-runtime",
 	"sp-runtime/try-runtime",
+	"pallet-xnft?/try-runtime",
 ]
