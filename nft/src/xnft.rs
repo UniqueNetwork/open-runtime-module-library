@@ -11,7 +11,7 @@ use sp_runtime::{
 };
 use xcm::v3::prelude::*;
 
-use pallet_xnft::traits::{DerivativeWithdrawal, IntoXcmError, NftPallet, PalletError};
+use pallet_xnft::traits::{DerivativeWithdrawal, IntoXcmError, NftInterface, PalletError};
 
 use crate::{Config, Error, Pallet};
 pub struct XnftAdapter<T, CollectionId, TokenId, DerivativeClassData, DerivativeTokenData>(
@@ -26,7 +26,7 @@ where
 	DerivativeClassData: Get<T::ClassData>,
 	DerivativeTokenData: Get<T::TokenData>;
 
-impl<T, CollectionId, TokenId, DerivativeClassData, DerivativeTokenData> NftPallet<T>
+impl<T, CollectionId, TokenId, DerivativeClassData, DerivativeTokenData> NftInterface<T>
 	for XnftAdapter<T, CollectionId, TokenId, DerivativeClassData, DerivativeTokenData>
 where
 	T: Config,
