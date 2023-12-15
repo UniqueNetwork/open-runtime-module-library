@@ -11,11 +11,14 @@ use sp_runtime::{
 };
 use xcm::v3::prelude::*;
 
-use pallet_xnft::traits::{DerivativeWithdrawal, IntoXcmError, NftInterface, PalletError};
+use pallet_xnft::traits::{
+	CollectionCreationWeight as CollectionCreationWeightT, DerivativeWithdrawal, IntoXcmError, NftInterface,
+	PalletError,
+};
 
 use crate::{Config, Error, Pallet};
-pub struct XnftAdapter<T, CollectionId, TokenId, DerivativeTokenData>(
-	PhantomData<(T, CollectionId, TokenId, DerivativeTokenData)>,
+pub struct XnftAdapter<T, CollectionId, TokenId, CollectionCreationWeight, DerivativeTokenData>(
+	PhantomData<(T, CollectionId, TokenId, CollectionCreationWeight, DerivativeTokenData)>,
 )
 where
 	T: Config,
@@ -23,22 +26,25 @@ where
 		Deref<Target = T::ClassId> + From<T::ClassId> + Member + Parameter + MaxEncodedLen + TryFrom<Junction>,
 	TokenId:
 		Deref<Target = T::TokenId> + From<T::TokenId> + Member + Parameter + MaxEncodedLen + TryFrom<AssetInstance>,
+	CollectionCreationWeight: CollectionCreationWeightT<T::ClassData>,
 	DerivativeTokenData: Get<T::TokenData>;
 
-impl<T, CollectionId, TokenId, DerivativeTokenData> NftInterface<T>
-	for XnftAdapter<T, CollectionId, TokenId, DerivativeTokenData>
+impl<T, CollectionId, TokenId, CollectionCreationWeight, DerivativeTokenData> NftInterface<T>
+	for XnftAdapter<T, CollectionId, TokenId, CollectionCreationWeight, DerivativeTokenData>
 where
 	T: Config,
 	CollectionId:
 		Deref<Target = T::ClassId> + From<T::ClassId> + Member + Parameter + MaxEncodedLen + TryFrom<Junction>,
 	TokenId:
 		Deref<Target = T::TokenId> + From<T::TokenId> + Member + Parameter + MaxEncodedLen + TryFrom<AssetInstance>,
+	CollectionCreationWeight: CollectionCreationWeightT<T::ClassData>,
 	DerivativeTokenData: Get<T::TokenData>,
 {
 	type CollectionId = CollectionId;
 	type TokenId = TokenId;
 	type PalletDispatchErrors = Error<T>;
 	type DerivativeCollectionData = T::ClassData;
+	type CollectionCreationWeight = CollectionCreationWeight;
 
 	fn create_derivative_collection(
 		owner: &T::AccountId,
