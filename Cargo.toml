@@ -31,6 +31,39 @@ resolver = "2"
 [workspace.metadata.orml]
 crates-version = "0.13.0"
 
+[workspace.metadata.deppatcher.originals.workspace.dependencies]
+cumulus-pallet-xcm = { version = "0.15.0" }
+cumulus-primitives-core = { version = "0.14.0" }
+frame-benchmarking = { version = "36.0.0" }
+frame-support = { version = "36.0.0" }
+frame-system = { version = "36.1.0" }
+pallet-balances = { version = "37.0.0" }
+pallet-elections-phragmen = { version = "37.0.0" }
+pallet-message-queue = { version = "39.0.0" }
+pallet-preimage = { version = "36.0.0" }
+pallet-root-testing = { version = "12.0.0" }
+pallet-scheduler = { version = "37.0.0" }
+pallet-timestamp = { version = "35.0.0" }
+pallet-treasury = { version = "35.0.0" }
+pallet-xcm = { version = "15.0.0" }
+polkadot-parachain-primitives = { version = "13.0.0" }
+polkadot-runtime-common = { version = "15.0.0" }
+polkadot-runtime-parachains = { version = "15.0.3" }
+sp-api = { version = "33.0.0" }
+sp-application-crypto = { version = "37.0.0" }
+sp-arithmetic = { version = "26.0.0" }
+sp-core = { version = "34.0.0" }
+sp-io = { version = "37.0.0" }
+sp-runtime = { version = "38.0.0" }
+sp-runtime-interface = { version = "28.0.0" }
+sp-staking = { version = "33.0.0" }
+sp-std = { version = "14.0.0" }
+sp-storage = { version = "21.0.0" }
+staging-xcm = { version = "14.0.3" }
+staging-xcm-builder = { version = "15.0.0" }
+staging-xcm-executor = { version = "15.0.0" }
+xcm-simulator = { version = "15.0.0" }
+
 [profile.dev]
 split-debuginfo = "unpacked"
 
@@ -40,35 +73,35 @@ scale-info = { version = "2.10.0", default-features = false, features = ["derive
 serde = "1.0.189"
 parity-scale-codec = { version = "3.6.5", default-features = false, features = ["max-encoded-len"] }
 
-cumulus-pallet-xcm = { version = "0.15.0", default-features = false }
-cumulus-primitives-core = { version = "0.14.0", default-features = false }
-frame-benchmarking = { version = "36.0.0", default-features = false }
-frame-support = { version = "36.0.0", default-features = false }
-frame-system = { version = "36.1.0", default-features = false }
-pallet-balances = { version = "37.0.0", default-features = false }
-pallet-elections-phragmen = { version = "37.0.0", default-features = false }
-pallet-message-queue = { version = "39.0.0", default-features = false }
-pallet-preimage = { version = "36.0.0", default-features = false }
-pallet-root-testing = { version = "12.0.0", default-features = false }
-pallet-scheduler = { version = "37.0.0", default-features = false }
-pallet-timestamp = { version = "35.0.0", default-features = false }
-pallet-treasury = { version = "35.0.0", default-features = false }
-pallet-xcm = { version = "15.0.0", default-features = false }
-polkadot-parachain-primitives = { version = "13.0.0", default-features = false }
-polkadot-runtime-common = { version = "15.0.0", default-features = false }
-polkadot-runtime-parachains = { version = "15.0.3", default-features = false }
-sp-api = { version = "33.0.0", default-features = false }
-sp-application-crypto = { version = "37.0.0", default-features = false }
-sp-arithmetic = { version = "26.0.0", default-features = false }
-sp-core = { version = "34.0.0", default-features = false }
-sp-io = { version = "37.0.0", default-features = false }
-sp-runtime = { version = "38.0.0", default-features = false }
-sp-runtime-interface = { version = "28.0.0", default-features = false }
-sp-staking = { version = "33.0.0", default-features = false }
-sp-std = { version = "14.0.0", default-features = false }
-sp-storage = { version = "21.0.0", default-features = false }
-xcm = { version = "14.0.3", package = "staging-xcm", default-features = false }
-xcm-builder = { version = "15.0.0", package = "staging-xcm-builder", default-features = false }
-xcm-executor = { version = "15.0.0", package = "staging-xcm-executor", default-features = false }
+cumulus-pallet-xcm = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+cumulus-primitives-core = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+frame-benchmarking = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+frame-support = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+frame-system = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+pallet-balances = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+pallet-elections-phragmen = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+pallet-message-queue = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+pallet-preimage = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+pallet-root-testing = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+pallet-scheduler = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+pallet-timestamp = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+pallet-treasury = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+pallet-xcm = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+polkadot-parachain-primitives = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+polkadot-runtime-common = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+polkadot-runtime-parachains = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+sp-api = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+sp-application-crypto = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+sp-arithmetic = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+sp-core = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+sp-io = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+sp-runtime = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+sp-runtime-interface = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+sp-staking = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+sp-std = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+sp-storage = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+xcm = { package = "staging-xcm", default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+xcm-builder = { package = "staging-xcm-builder", default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+xcm-executor = { package = "staging-xcm-executor", default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
 
-xcm-simulator = "15.0.0"
+xcm-simulator = { git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }

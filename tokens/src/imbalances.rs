@@ -1,7 +1,7 @@
 // wrapping these imbalances in a private module is necessary to ensure absolute
 // privacy of the inner member.
 use crate::{Config, TotalIssuance};
-use frame_support::traits::{Get, Imbalance, SameOrOther, TryDrop};
+use frame_support::traits::{tokens::imbalance::TryMerge, Get, Imbalance, SameOrOther, TryDrop};
 use sp_runtime::traits::{Saturating, Zero};
 use sp_std::{marker, mem, result};
 
@@ -24,34 +24,6 @@ impl<T: Config, GetCurrencyId: Get<T::CurrencyId>> PositiveImbalance<T, GetCurre
 impl<T: Config, GetCurrencyId: Get<T::CurrencyId>> Default for PositiveImbalance<T, GetCurrencyId> {
 	fn default() -> Self {
 		Self::zero()
-	}
-}
-
-/// Opaque, move-only struct with private fields that serves as a token
-/// denoting that funds have been destroyed without any equal and opposite
-/// accounting.
-#[must_use]
-pub struct NegativeImbalance<T: Config, GetCurrencyId: Get<T::CurrencyId>>(
-	T::Balance,
-	marker::PhantomData<GetCurrencyId>,
-);
-
-impl<T: Config, GetCurrencyId: Get<T::CurrencyId>> NegativeImbalance<T, GetCurrencyId> {
-	/// Create a new negative imbalance from a balance.
-	pub fn new(amount: T::Balance) -> Self {
-		NegativeImbalance(amount, marker::PhantomData::<GetCurrencyId>)
-	}
-}
-
-impl<T: Config, GetCurrencyId: Get<T::CurrencyId>> Default for NegativeImbalance<T, GetCurrencyId> {
-	fn default() -> Self {
-		Self::zero()
-	}
-}
-
-impl<T: Config, GetCurrencyId: Get<T::CurrencyId>> TryDrop for PositiveImbalance<T, GetCurrencyId> {
-	fn try_drop(self) -> result::Result<(), Self> {
-		self.drop_zero()
 	}
 }
 
@@ -110,9 +82,44 @@ impl<T: Config, GetCurrencyId: Get<T::CurrencyId>> Imbalance<T::Balance> for Pos
 	}
 }
 
-impl<T: Config, GetCurrencyId: Get<T::CurrencyId>> TryDrop for NegativeImbalance<T, GetCurrencyId> {
+impl<T: Config, GetCurrencyId: Get<T::CurrencyId>> TryMerge for PositiveImbalance<T, GetCurrencyId> {
+	fn try_merge(self, other: Self) -> Result<Self, (Self, Self)> {
+		Ok(self.merge(other))
+	}
+}
+
+impl<T: Config, GetCurrencyId: Get<T::CurrencyId>> TryDrop for PositiveImbalance<T, GetCurrencyId> {
 	fn try_drop(self) -> result::Result<(), Self> {
 		self.drop_zero()
+	}
+}
+
+impl<T: Config, GetCurrencyId: Get<T::CurrencyId>> Drop for PositiveImbalance<T, GetCurrencyId> {
+	/// Basic drop handler will just square up the total issuance.
+	fn drop(&mut self) {
+		TotalIssuance::<T>::mutate(GetCurrencyId::get(), |v| *v = v.saturating_add(self.0));
+	}
+}
+
+/// Opaque, move-only struct with private fields that serves as a token
+/// denoting that funds have been destroyed without any equal and opposite
+/// accounting.
+#[must_use]
+pub struct NegativeImbalance<T: Config, GetCurrencyId: Get<T::CurrencyId>>(
+	T::Balance,
+	marker::PhantomData<GetCurrencyId>,
+);
+
+impl<T: Config, GetCurrencyId: Get<T::CurrencyId>> NegativeImbalance<T, GetCurrencyId> {
+	/// Create a new negative imbalance from a balance.
+	pub fn new(amount: T::Balance) -> Self {
+		NegativeImbalance(amount, marker::PhantomData::<GetCurrencyId>)
+	}
+}
+
+impl<T: Config, GetCurrencyId: Get<T::CurrencyId>> Default for NegativeImbalance<T, GetCurrencyId> {
+	fn default() -> Self {
+		Self::zero()
 	}
 }
 
@@ -171,10 +178,15 @@ impl<T: Config, GetCurrencyId: Get<T::CurrencyId>> Imbalance<T::Balance> for Neg
 	}
 }
 
-impl<T: Config, GetCurrencyId: Get<T::CurrencyId>> Drop for PositiveImbalance<T, GetCurrencyId> {
-	/// Basic drop handler will just square up the total issuance.
-	fn drop(&mut self) {
-		TotalIssuance::<T>::mutate(GetCurrencyId::get(), |v| *v = v.saturating_add(self.0));
+impl<T: Config, GetCurrencyId: Get<T::CurrencyId>> TryMerge for NegativeImbalance<T, GetCurrencyId> {
+	fn try_merge(self, other: Self) -> Result<Self, (Self, Self)> {
+		Ok(self.merge(other))
+	}
+}
+
+impl<T: Config, GetCurrencyId: Get<T::CurrencyId>> TryDrop for NegativeImbalance<T, GetCurrencyId> {
+	fn try_drop(self) -> result::Result<(), Self> {
+		self.drop_zero()
 	}
 }
 
