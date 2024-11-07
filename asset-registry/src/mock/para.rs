@@ -55,6 +55,7 @@ impl pallet_balances::Config for Runtime {
 	type RuntimeFreezeReason = RuntimeFreezeReason;
 	type FreezeIdentifier = [u8; 8];
 	type MaxFreezes = ();
+	type DoneSlashHandler = ();
 }
 
 use orml_asset_registry::impls::ExistentialDeposits as AssetRegistryExistentialDeposits;

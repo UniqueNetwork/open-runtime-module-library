@@ -45,6 +45,7 @@ impl pallet_balances::Config for Runtime {
 	type RuntimeFreezeReason = RuntimeFreezeReason;
 	type FreezeIdentifier = [u8; 8];
 	type MaxFreezes = ();
+	type DoneSlashHandler = ();
 }
 
 impl shared::Config for Runtime {

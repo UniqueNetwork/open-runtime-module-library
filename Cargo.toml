@@ -40,35 +40,35 @@ scale-info = { version = "2.10.0", default-features = false, features = ["derive
 serde = "1.0.189"
 parity-scale-codec = { version = "3.6.5", default-features = false, features = ["max-encoded-len"] }
 
-cumulus-pallet-xcm = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-cumulus-primitives-core = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-frame-benchmarking = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-frame-support = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-frame-system = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-pallet-balances = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-pallet-elections-phragmen = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-pallet-message-queue = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-pallet-preimage = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-pallet-root-testing = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-pallet-scheduler = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-pallet-timestamp = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-pallet-treasury = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-pallet-xcm = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-polkadot-parachain-primitives = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-polkadot-runtime-common = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-polkadot-runtime-parachains = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-sp-api = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-sp-application-crypto = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-sp-arithmetic = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-sp-core = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-sp-io = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-sp-runtime = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-sp-runtime-interface = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-sp-staking = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-sp-std = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-sp-storage = { default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-xcm = { package = "staging-xcm", default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-xcm-builder = { package = "staging-xcm-builder", default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
-xcm-executor = { package = "staging-xcm-executor", default-features = false , git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
+cumulus-pallet-xcm = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+cumulus-primitives-core = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+frame-benchmarking = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+frame-support = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+frame-system = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+pallet-balances = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+pallet-elections-phragmen = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+pallet-message-queue = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+pallet-preimage = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+pallet-root-testing = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+pallet-scheduler = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+pallet-timestamp = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+pallet-treasury = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+pallet-xcm = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+polkadot-parachain-primitives = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+polkadot-runtime-common = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+polkadot-runtime-parachains = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+sp-api = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+sp-application-crypto = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+sp-arithmetic = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+sp-core = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+sp-io = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+sp-runtime = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+sp-runtime-interface = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+sp-staking = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+sp-std = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+sp-storage = { default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+xcm = { package = "staging-xcm", default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+xcm-builder = { package = "staging-xcm-builder", default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
+xcm-executor = { package = "staging-xcm-executor", default-features = false , git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
 
-xcm-simulator = { git="https://github.com/paritytech/polkadot-sdk", branch="stable2409" }
+xcm-simulator = { git = "https://github.com/UniqueNetwork/polkadot-sdk", branch = "v20241023" }
