@@ -34,7 +34,7 @@ split-debuginfo = "unpacked"
 [workspace.dependencies]
 log = { version = "0.4.25", default-features = false }
 scale-info = { version = "2.10.0", default-features = false, features = ["derive"] }
-serde = { version = "1.0.214" }
+serde = "1.0.214"
 parity-scale-codec = { version = "3.6.12", default-features = false, features = ["max-encoded-len"] }
 
 cumulus-pallet-xcm = { version = "0.18.0", default-features = false }
@@ -42,7 +42,7 @@ cumulus-primitives-core = { version = "0.17.0", default-features = false }
 frame-benchmarking = { version = "39.0.0", default-features = false }
 frame-support = { version = "39.0.0", default-features = false }
 frame-system = { version = "39.1.0", default-features = false }
-pallet-balances = { version = "40.0.0", default-features = false }
+pallet-balances = { version = "40.0.1", default-features = false }
 pallet-elections-phragmen = { version = "40.0.0", default-features = false }
 pallet-message-queue = { version = "42.0.0", default-features = false }
 pallet-preimage = { version = "39.0.0", default-features = false }
@@ -65,7 +65,12 @@ sp-staking = { version = "37.0.0", default-features = false }
 sp-std = { version = "14.0.0", default-features = false }
 sp-storage = { version = "22.0.0", default-features = false }
 xcm = { version = "15.0.1", package = "staging-xcm", default-features = false }
-xcm-builder = { version = "18.0.0", package = "staging-xcm-builder", default-features = false }
-xcm-executor = { version = "18.0.0", package = "staging-xcm-executor", default-features = false }
+xcm-builder = { version = "18.0.1", package = "staging-xcm-builder", default-features = false }
+xcm-executor = { version = "18.0.1", package = "staging-xcm-executor", default-features = false }
 
-xcm-simulator = { version = "18.0.0" }
+xcm-simulator = "18.0.0"
+
+[workspace.metadata.deppatcher.originals.workspace.dependencies]
+pallet-balances = { version = "40.0.0" }
+staging-xcm-builder = { version = "18.0.0" }
+staging-xcm-executor = { version = "18.0.0" }
