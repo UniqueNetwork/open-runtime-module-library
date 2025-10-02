@@ -10,7 +10,7 @@ edition = "2021"
 [dependencies]
 parity-scale-codec = { workspace = true }
 log = { workspace = true }
-paste = "1.0.7"
+paste = "1.0.15"
 scale-info = { workspace = true }
 serde = { workspace = true, optional = true }
 
@@ -25,7 +25,7 @@ sp-std = { workspace = true }
 sp-storage = { workspace = true }
 
 [dev-dependencies]
-hex-literal = "0.4.1"
+hex-literal = "1.0.0"
 
 frame-system = { workspace = true, features = ["std"] }
 

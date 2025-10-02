@@ -19,7 +19,7 @@ sp-io = { workspace = true }
 sp-core = { workspace = true }
 
 [dev-dependencies]
-serde_json = "1.0.64"
+serde_json = "1.0.145"
 
 frame-system = { workspace = true, features = ["std"] }
 
