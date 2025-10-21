@@ -33,38 +33,38 @@ split-debuginfo = "unpacked"
 [workspace.dependencies]
 log = { version = "0.4.28", default-features = false }
 scale-info = { version = "2.11.6", default-features = false, features = ["derive"] }
-serde = { version = "1.0.228" }
+serde = "1.0.228"
 parity-scale-codec = { version = "3.7.5", default-features = false, features = ["max-encoded-len"] }
 
-cumulus-pallet-xcm = { version = "0.21.0", default-features = false }
-cumulus-primitives-core = { version = "0.20.0", default-features = false }
-frame-benchmarking = { version = "42.0.0", default-features = false }
-frame-support = { version = "42.0.0", default-features = false }
-frame-system = { version = "42.0.0", default-features = false }
-pallet-balances = { version = "43.0.1", default-features = false }
-pallet-elections-phragmen = { version = "43.0.0", default-features = false }
-pallet-message-queue = { version = "45.0.0", default-features = false }
-pallet-preimage = { version = "42.0.0", default-features = false }
-pallet-root-testing = { version = "18.0.0", default-features = false }
-pallet-scheduler = { version = "43.0.0", default-features = false }
-pallet-timestamp = { version = "41.0.0", default-features = false }
-pallet-treasury = { version = "41.0.0", default-features = false }
-pallet-xcm = { version = "22.0.1", default-features = false }
-polkadot-parachain-primitives = { version = "18.0.0", default-features = false }
-polkadot-runtime-common = { version = "21.0.0", default-features = false }
-polkadot-runtime-parachains = { version = "21.0.1", default-features = false }
-sp-api = { version = "38.0.0", default-features = false }
-sp-application-crypto = { version = "42.0.0", default-features = false }
+cumulus-pallet-xcm = { version = "0.22.0", default-features = false }
+cumulus-primitives-core = { version = "0.21.0", default-features = false }
+frame-benchmarking = { version = "43.0.0", default-features = false }
+frame-support = { version = "43.0.0", default-features = false }
+frame-system = { version = "43.0.0", default-features = false }
+pallet-balances = { version = "44.0.0", default-features = false }
+pallet-elections-phragmen = { version = "44.0.0", default-features = false }
+pallet-message-queue = { version = "46.0.0", default-features = false }
+pallet-preimage = { version = "43.0.0", default-features = false }
+pallet-root-testing = { version = "19.0.0", default-features = false }
+pallet-scheduler = { version = "44.0.0", default-features = false }
+pallet-timestamp = { version = "42.0.0", default-features = false }
+pallet-treasury = { version = "42.0.0", default-features = false }
+pallet-xcm = { version = "23.0.0", default-features = false }
+polkadot-parachain-primitives = { version = "19.0.0", default-features = false }
+polkadot-runtime-common = { version = "22.0.0", default-features = false }
+polkadot-runtime-parachains = { version = "22.0.0", default-features = false }
+sp-api = { version = "39.0.0", default-features = false }
+sp-application-crypto = { version = "43.0.0", default-features = false }
 sp-arithmetic = { version = "28.0.0", default-features = false }
-sp-core = { version = "38.0.0", default-features = false }
-sp-io = { version = "42.0.0", default-features = false }
-sp-runtime = { version = "43.0.0", default-features = false }
-sp-runtime-interface = { version = "31.0.0", default-features = false }
-sp-staking = { version = "40.0.0", default-features = false }
+sp-core = { version = "38.1.0", default-features = false }
+sp-io = { version = "43.0.0", default-features = false }
+sp-runtime = { version = "44.0.0", default-features = false }
+sp-runtime-interface = { version = "32.0.0", default-features = false }
+sp-staking = { version = "41.0.0", default-features = false }
 sp-std = { version = "14.0.0", default-features = false }
 sp-storage = { version = "22.0.0", default-features = false }
-xcm = { version = "18.0.0", package = "staging-xcm", default-features = false }
-xcm-builder = { version = "22.0.0", package = "staging-xcm-builder", default-features = false }
-xcm-executor = { version = "21.0.0", package = "staging-xcm-executor", default-features = false }
+xcm = { version = "19.0.0", package = "staging-xcm", default-features = false }
+xcm-builder = { version = "23.0.0", package = "staging-xcm-builder", default-features = false }
+xcm-executor = { version = "22.0.0", package = "staging-xcm-executor", default-features = false }
 
-xcm-simulator = { version = "22.0.0" }
+xcm-simulator = "23.0.0"
